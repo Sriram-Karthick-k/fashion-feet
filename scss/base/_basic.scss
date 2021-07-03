@@ -1,0 +1,25 @@
+body {
+  background-color: $primary;
+  transition: all 1s ease;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+body::-webkit-scrollbar {
+  background-color: $primary;
+  width: 5px;
+}
+body::-webkit-scrollbar-thumb {
+  background-color: $secondary;
+  border-radius: 5px;
+  border-radius: 10px;
+}
+.copy-text {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.text-center {
+  text-align: center;
+}

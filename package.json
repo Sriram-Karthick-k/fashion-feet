@@ -1,0 +1,17 @@
+{
+  "name": "food-page",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "devStart":"start npm run server && npm run sass",
+    "sass":"node-sass scss/main.scss css/styles.css -w",
+    "server":"live-server"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "node-sass": "^6.0.1"
+  }
+}

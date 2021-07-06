@@ -1,3 +1,69 @@
-header {
-  width: 100%;
+#content {
+  //fashino section start
+  .fashino-section {
+    @include section(darken($primary, 2), $secondary);
+    //item container start
+    .item-container {
+      @include grid(4, 2%, 1%, 0px);
+      .coloum {
+        border-radius: 5px;
+        text-align: center;
+        .show-image-container {
+          width: 100%;
+          max-height: 100%;
+          overflow: hidden;
+          transition: all 0.2s ease-in-out;
+          margin-bottom: 4%;
+          .show-image {
+            width: 100%;
+            object-fit: cover;
+            transition: all 0.2s ease-in-out;
+          }
+          &:hover,
+          &:focus {
+            .show-image {
+              transform: scale(1.1);
+            }
+            box-shadow: 0px 0px 3px $font;
+          }
+        }
+        .show-image-text {
+          cursor: pointer;
+          font-family: subFont;
+          font-size: 1.2rem;
+          color: $secondary;
+          text-transform: capitalize;
+          text-decoration: none;
+          transition: all 0.2s ease-in-out;
+          &:hover,
+          &:focus {
+            color: $secondaryDark;
+          }
+        }
+      }
+    }
+    @media (max-width: $tabletScreen) {
+      .item-container {
+        @include grid(2, 2%, 3%, 0px);
+      }
+    }
+    @media (max-width: $mobileScreen) {
+      .item-container {
+        @include grid(1, 0%, 7%, 0px);
+        .coloum {
+          .show-image-text {
+            margin-top: 2%;
+          }
+        }
+      }
+    }
+    //item container end
+  }
+  //fashino section end
+
+  //new-arrival-section start
+  .new-arrival-section {
+    @include section(darken($primary, 2), $secondary);
+  }
+  //new arrival-section end
 }

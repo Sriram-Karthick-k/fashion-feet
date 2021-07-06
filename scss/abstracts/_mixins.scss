@@ -1,0 +1,51 @@
+@mixin grid($count, $margin-right, $margin-bottom, $padding) {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  .coloum {
+    margin-right: $margin-right;
+    margin-bottom: $margin-bottom;
+    padding: $padding;
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 ((100% - (($count - 1) * $margin-right)) / $count);
+    flex: 0 0 ((100% - (($count - 1) * $margin-right)) / $count);
+    max-width: ((100% - (($count - 1) * $margin-right)) / $count);
+    &:nth-child(#{$count}n) {
+      margin-right: 0;
+    }
+    &:nth-last-line(1) {
+      margin-bottom: 0;
+    }
+  }
+}
+//section mixin which is for every section
+@mixin section($background-color, $font-color) {
+  width: 100%;
+  padding: 2% 10%;
+  background-color: $background-color;
+  border-bottom: 1px solid lighten($font, 60);
+  .section-text {
+    margin-bottom: 2%;
+    p {
+      font-family: headingFont;
+      text-transform: uppercase;
+      text-decoration: underline;
+      color: $font-color;
+      font-size: 1.5rem;
+      text-align: center;
+    }
+  }
+  @media (max-width: $tabletScreen) {
+    .section-text {
+      margin-bottom: 4%;
+    }
+  }
+  @media (max-width: $mobileScreen) {
+    padding: 3% 10%;
+    .section-text {
+      margin-bottom: 6%;
+    }
+  }
+}

@@ -1,0 +1,41 @@
+#content {
+  //carousel start
+  scroll-behavior: smooth;
+  #carouselExampleControls {
+    .carousel-indicators {
+      li {
+        background-color: $secondary;
+      }
+      .active {
+        background-color: $secondaryDark;
+      }
+    }
+    .carousel-inner {
+      .carousel-item {
+        .carousel-image {
+          max-width: 100%;
+        }
+      }
+    }
+    .carousel-control {
+      .carousel-control-svg {
+        background-image: none;
+        //navigator color
+        svg {
+          g {
+            fill: $secondary;
+          }
+        }
+        &:hover,
+        &:focus {
+          svg {
+            g {
+              fill: $secondaryDark;
+            }
+          }
+        }
+      }
+    }
+  }
+  //carousel end
+}

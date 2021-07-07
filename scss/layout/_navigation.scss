@@ -29,10 +29,10 @@
       border-radius: 5px;
       border-radius: 10px;
     }
-    .sidebar-header {
-      background: darken($bg, 10);
-      border-bottom: 1px solid darken($color, 0);
-    }
+    // .sidebar-header {
+    //   background: darken($bg, 10);
+    //   border-bottom: 1px solid darken($color, 0);
+    // }
     .components {
       padding: 0px 0 0 0;
     }
@@ -232,15 +232,15 @@
   }
   //content-end
   //to disable image while the side bar is open
-  .icon-hide + #content {
-    .nav-bar-wrapper {
-      .horizontal-navbar {
-        .nav-bar-image {
-          opacity: 0;
-        }
-      }
-    }
-  }
+  // .icon-hide + #content {
+  //   .nav-bar-wrapper {
+  //     .horizontal-navbar {
+  //       .nav-bar-image {
+  //         opacity: 0;
+  //       }
+  //     }
+  //   }
+  // }
 }
 //1650px
 @media (max-width: 1650px) {

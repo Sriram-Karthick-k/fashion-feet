@@ -64,6 +64,21 @@
   //new-arrival-section start
   .new-arrival-section {
     @include section(darken($primary, 2), $secondary);
+    .new-arrival-slider {
+      @include slider(4, 1%, 0%, 0, 45px);
+      @media (max-width: $mediumScreen) {
+        @include slider(4, 1%, 0%, 0, 35px);
+      }
+      @media (max-width: $tabletScreen) {
+        @include slider(3, 1%, 0%, 0, 35px);
+      }
+      @media (max-width: $mobileLandScapeScreen) {
+        @include slider(2, 1%, 0%, 0, 35px);
+      }
+      @media (max-width: $mobileScreen) {
+        @include slider(1, 1%, 0%, 0, 35px);
+      }
+    }
   }
   //new arrival-section end
 }

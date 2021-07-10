@@ -4,10 +4,11 @@
   display: flex;
   text-decoration: none;
   transition: all 0.3s;
-  $bg: lighten($primary, 2);
-  $hoverBg: darken($secondary, 3);
-  $color: darken($font, 20);
-  $hoverColor: lighten($primary, 50);
+  //colors-navbar
+  $bg: lighten($secondary, 2);
+  $color: $font;
+  $hoverColor: $primary;
+  $hoverBg: lighten($secondary, 2);
   //side-bar-start
   #sidebar {
     min-width: 250px;
@@ -38,6 +39,7 @@
     }
     .nav-menu-item {
       .nav-menu-item-link {
+        font-weight: 600;
         color: $color;
         padding: 10px;
         font-size: 1.1em;
@@ -63,8 +65,8 @@
           transition: all 0.3s;
         }
         svg {
-          width: 30px;
-          height: 30px;
+          width: 25px;
+          height: 25px;
           margin-right: 5px;
           g {
             fill: $color;
@@ -74,12 +76,13 @@
       .nav-menu-item-sub-link {
         color: $color;
         font-size: 0.9em !important;
+        font-weight: 400;
         padding: 10px;
         display: block;
         &:hover,
         &:focus {
           color: $hoverColor;
-          background: darken($hoverBg, 5);
+          background: darken($hoverBg, 3);
         }
         &,
         &:hover,
@@ -99,7 +102,7 @@
       }
     }
     .active-link {
-      background-color: darken($hoverBg, 5);
+      background-color: darken($hoverBg, 3);
       .nav-menu-item-link {
         color: $hoverColor;
         svg {
@@ -121,7 +124,7 @@
     transition: all 0.3s;
     //nav-bar-start
     .nav-bar-wrapper {
-      background-color: darken($bg, 5);
+      background-color: lighten($secondary, 2);
       position: -webkit-sticky;
       position: sticky;
       top: -3.4rem;
@@ -132,7 +135,7 @@
       box-shadow: 0px 0px 10px $color;
       .horizontal-navbar {
         margin: 0rem auto 0 auto;
-        background-color: darken($bg, 5);
+        background-color: lighten($secondary, 2);
         padding: 15px;
         border-radius: 0.5rem;
         display: flex;
@@ -161,7 +164,7 @@
             flex-direction: column;
             justify-content: center;
             .bar {
-              background-color: darken($hoverBg, 5);
+              background-color: $color;
               width: 100%;
               height: 4px;
               position: relative;
@@ -173,7 +176,7 @@
                 left: 0;
                 width: 0%;
                 position: absolute;
-                background-color: lighten($font, 25);
+                background-color: $hoverColor;
               }
             }
             .bar-top {
@@ -209,14 +212,14 @@
                 width: 30px;
                 height: 30px;
                 g {
-                  fill: darken($hoverBg, 5);
+                  fill: $color;
                 }
               }
               &:hover,
               &:focus {
                 svg {
                   g {
-                    fill: darken($hoverBg, 10);
+                    fill: $hoverColor;
                   }
                 }
               }

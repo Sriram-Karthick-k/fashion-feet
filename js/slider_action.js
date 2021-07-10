@@ -42,6 +42,73 @@ $(document).ready(function () {
       }
     }
   });
+  var isDragging = false;
+  var startPosition=0;
+  var endPosition=0;
+  $(".slide-container")
+  .mousedown(function(event) {
+      isDragging = false;
+      startPosition=event.originalEvent.screenX
+    })
+  .mousemove(function(event) {
+      isDragging = true;
+      endPosition=event.originalEvent.screenX
+  })
+  .mouseup(function(event) {
+      var wasDragging = isDragging;
+      if (wasDragging) {      
+        const sensitivityInPx = 5;
+        //when we swipe from right to left
+        if( Math.floor(startPosition - endPosition) > sensitivityInPx ){
+          var nextButton=$(this)[0].parentElement.nextElementSibling
+          var containerParent=nextButton.previousElementSibling.children[0]
+          var child=nextButton.previousElementSibling.children[0].children[0]
+          var totalChildren=nextButton.previousElementSibling.children[0].children.length
+          var childStyle=getComputedStyle(child);
+          var childWidth=Number(childStyle.width.split("px")[0])+Number(childStyle.marginRight.split("px")[0])
+          var numberOfChild=Math.round(containerParent.offsetWidth/childWidth)
+          var toImage=Number(containerParent.dataset.numberimage)+1
+          //return when the item is at n
+          if((toImage-1)+numberOfChild==totalChildren){
+            return
+          }
+          containerParent.style.transform="translate(-"+toImage*childWidth+"px)"
+          containerParent.dataset.numberimage=toImage
+          //toggles the class when the item reaches to n
+          if(totalChildren===toImage+numberOfChild){
+            nextButton.classList="slider-control slide-right"
+          }
+          //updates the previous button to active when the next button is clicked
+          if(!(nextButton.previousElementSibling.previousElementSibling.children[0].classList.contains("slider-control-active"))){
+            nextButton.previousElementSibling.previousElementSibling.classList+=" slider-control-active"
+          }
+        }
+        else if( Math.floor(startPosition - endPosition) < -sensitivityInPx ){
+          var previousBUtton=$(this)[0].parentElement.previousElementSibling
+          var containerParent=previousBUtton.nextElementSibling.children[0]
+          var child=previousBUtton.nextElementSibling.children[0].children[0]
+          var totalChildren=previousBUtton.nextElementSibling.children[0].children.length
+          var childStyle=getComputedStyle(child);
+          var childWidth=Number(childStyle.width.split("px")[0])+Number(childStyle.marginRight.split("px")[0])
+          var numberOfChild=Math.round(containerParent.offsetWidth/childWidth)
+          var toImage=Number(containerParent.dataset.numberimage)-1
+          //return when the item is at 0
+          if((toImage+1)==0){
+            return
+          }
+          containerParent.style.transform="translate(-"+toImage*childWidth+"px)"
+          containerParent.dataset.numberimage=toImage
+          //toggles the class when the item reaches to 0
+          if(0===toImage){
+            previousBUtton.classList="slider-control slide-left"
+          }
+          //updates the next button to active when the previous button is clicked
+          if(!(previousBUtton.nextElementSibling.nextElementSibling.children[0].classList.contains("slider-control-active"))){
+            previousBUtton.nextElementSibling.nextElementSibling.classList+=" slider-control-active"
+          }
+        }
+      }
+  });
 });
 //used to reset the slides when the size of the the page is changed
 function resize(current){

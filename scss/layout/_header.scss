@@ -7,7 +7,7 @@
         background-color: $secondary;
       }
       .active {
-        background-color: $secondaryDark;
+        background-color: $primary;
       }
     }
     .carousel-inner {
@@ -30,7 +30,7 @@
         &:focus {
           svg {
             g {
-              fill: $secondaryDark;
+              fill: $primary;
             }
           }
         }
